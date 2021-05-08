@@ -24,11 +24,11 @@ DB_DATABASE=adonis
 7. Run `node ace migration:run` in the terminal to migrate the tables into database
 8. Run `node ace db:seed -i` in the terminal and choose `database/seeder/User` if you want to have a dummy user to login. You can skip this step if you want to create user on your own.
 9. Run the application by typing `node ace serve --watch` in the terminal
-11. Open the server address in the browser. Default: `localhost:3333`
-10. You can use the dummy user below to login the application.
+10. Open the server address in the browser. Default: `localhost:3333`
+11. You can use the dummy user below to login the application.
 ```
 DUMMY USER
 email: dummy@mail.com
 password: password
 ```
-11. Try out the features!
+12. Try out the features!
