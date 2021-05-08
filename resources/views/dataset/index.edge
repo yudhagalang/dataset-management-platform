@@ -1,0 +1,49 @@
+@layout('layout/layout')
+@section('content')
+  <div class="container">
+    @if(err)
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{err}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @elseif(msg)
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{msg}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    <div class="row" style="margin-top:5rem">
+      <div class="col">
+        <h1 class="display-5">Datasets List</h1>
+      </div>
+      <div class="col-auto align-self-end mb-3">
+        <a 
+        href="datasets/upload" 
+        class="btn btn-success"
+        >
+          + Upload New Dataset
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-md">
+    <table class="table table-dark table-hover table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="col-md-5" scope="col">Dataset Name</th>
+          <th class="col-md-5" scope="col">File</th>
+          <th class="col-md-2" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(dataset in datasets)
+        <tr class="align-middle">
+          <td>{{dataset.name}}</td>
+          <td>{{dataset.filePath}}</td>
+          <td><a href="/datasets/{{dataset.id}}/delete" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+        @endeach
+      </tbody>
+    </table>
+  </div>
+@endsection

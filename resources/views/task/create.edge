@@ -1,0 +1,47 @@
+@layout('layout/layout')
+@section('content')
+  <div class="container" style="margin-top:5rem">
+    @if(flashMessages.has('err'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{flashMessages.get('err')}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    <h1 class="display-5">Create a Task</h1>
+    <div class="col-5">
+      <form action="/tasks/create" method="POST" autocomplete="off" aria-autocomplete="none">
+        <div class="my-3">
+          <label for="task_name" class="form-label mx-1">Task Name</label>
+          <input 
+            id="task_name"
+            name="task_name"
+            class="form-control" 
+            type="text" 
+            placeholder="Task Name" 
+            aria-label="task_name"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="my-3">
+          <label for="dataset_id" class="form-label mx-1">Choose Dataset</label>
+          <select 
+            class="form-select" 
+            aria-label="Default select example"
+            id="dataset_id"
+            name="dataset_id"
+          >
+            <option value="null">Choose your dataset</option>
+          @each(dataset in datasets)
+            <option value="{{dataset.id}}">{{dataset.name}}</option>
+          @endeach
+          </select>
+        </div>
+        <div class="col">
+          <button class="btn btn-outline-primary">
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+@endsection

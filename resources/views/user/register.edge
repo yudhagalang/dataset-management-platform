@@ -1,0 +1,51 @@
+@layout('layout/layout')
+
+@section('content')
+  <div class="card col-md-4 offset-4" style="margin-top: 10rem">
+    <div class="card-body">
+      <h1 class="display-6 text-center pb-3">User Registration</h1>
+      <form action="/register" method="POST">
+        <div class="mb-3">
+          <input 
+            id="email"
+            name="email"
+            class="form-control" 
+            type="email" 
+            placeholder="your@email.com" 
+            aria-label="email"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+          <input 
+            id="password"
+            name="password"
+            class="form-control" 
+            type="password" 
+            placeholder="Password" 
+            aria-label="password"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="mb-3">
+          <input
+            id="password_confirmation"
+            name="password_confirmation"
+            class="form-control"
+            type="password" 
+            placeholder="Confirm Password" 
+            aria-label="password_confirmation"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="pt-2 mt-3 border-t border-gray-200">
+          <div class="flex text-center">
+            <button class="btn btn-outline-dark" type="submit">
+              Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+@endsection

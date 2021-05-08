@@ -1,0 +1,21 @@
+@layout('layout/layout')
+@section('content')
+<div class="container-md">
+  @if(flashMessages.has('msg'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{flashMessages.get('msg')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  @endif
+</div>
+<div class="jumbotron jumbotron-fluid h-100" style="margin-top: 20rem">
+  <div class="row-lg-12 h-100 d-flex">    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 float-md-center text-center my-auto">
+      <h1 class="display-3">Dataset Management Platform</h1>
+      <p class="lead">This is a platform to manage your datasets.</p>
+      <a class="btn btn-dark btn-lg" href="/datasets" role="button">Get Started</a>
+    </div>
+  </div>
+</div>
+
+@endsection
