@@ -1,34 +1,41 @@
-import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, BelongsTo,column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
-import User from './User'
+import { DateTime } from "luxon";
+import {
+  BaseModel,
+  belongsTo,
+  BelongsTo,
+  column,
+  hasOne,
+  HasOne,
+} from "@ioc:Adonis/Lucid/Orm";
+import User from "./User";
 
-import Dataset from './Dataset'
+import Dataset from "./Dataset";
 
 export default class Task extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public id: string;
 
   @column()
-  public name: string
+  public name: string;
 
   @column()
-  public status: number //0 = deleted, 1 = booked, 2 = not booked
+  public status: number; //0 = deleted, 1 = booked, 2 = not booked
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public createdAt: DateTime;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updatedAt: DateTime;
 
   @column()
-  public userId: number
+  public userId: string;
   @belongsTo(() => User, {
-    foreignKey: 'userId', // userId column on "Task" model
+    foreignKey: "userId", // userId column on "Task" model
   })
-  public author: BelongsTo<typeof User>
+  public author: BelongsTo<typeof User>;
 
   @hasOne(() => Dataset, {
-    foreignKey: 'taskId,'
+    foreignKey: "taskId,",
   })
-  public dataset: HasOne<typeof Dataset>
+  public dataset: HasOne<typeof Dataset>;
 }

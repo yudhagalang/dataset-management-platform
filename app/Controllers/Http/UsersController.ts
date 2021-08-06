@@ -1,6 +1,7 @@
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import NewUserValidator from "App/Validators/NewUserValidator";
 import User from "App/Models/User";
+const uuidv4 = require("uuid/v4");
 
 export default class UsersController {
   create({ view }: HttpContextContract) {
@@ -38,6 +39,7 @@ export default class UsersController {
     delete data.password_confirmation;
 
     const user = new User();
+    user.id = uuidv4();
     user.email = validation.email;
     user.password = validation.password;
 
